@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Capturing Scroll Events</h1>
+    <div id="page-width"></div>
+    <div id="page-height"></div>
+
+    <script>
+        /*
+        var pageTop;
+
+        window.addEventListener('scroll', function () {
+            pageTop = window.pageYOffset;
+            console.log(pageTop)
+        });
+        */
+
+        var pageWidthDiv = document.getElementById('page-width');
+        var pageHeightDiv = document.getElementById('page-height');
+
+        window.addEventListener('resize', function () {
+            pageWidthDiv.textContent = "The page width is " + window.innerWidth + " pixels";
+            pageHeightDiv.textContent = "The page height is " + window.innerHeight + " pixels";
+        })
+    </script>
+</body>
+</html>

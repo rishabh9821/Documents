@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Testing Scope in Javascript
+    </h1>
+    <p>
+        Here's one paragraph
+    </p>
+    <p>
+        Here's another paragraph
+    </p>
+    <p>
+        Here's the last paragraph
+    </p>
+
+    <script>
+        // Strategy 1: Use IIFEs to not have global variables!
+        (function stuffDone() {
+            var myParas = document.querySelectorAll('p');
+            for (var i = 0; i < myParas.length; i++) {
+                myParas[i].style.color = 'red'
+        }
+        } ()); 
+
+        // Strategy 2: Use "strict" to stop the var keyword from not being used
+        // Can use IIFEs and "use strict together"
+
+        "use strict";
+
+        newVar = 'not properly defined';
+        console.log(newVar)
+
+        // Strategy 3: Use const & let instead of var
+
+        const cheese = 'yummy'; // Cannot change this variable to another variable later
+        // const - Not Able to be Changed
+
+        let i = 0; // Block level scope. If in for loop, this variable will only be available in the loop
+
+        // Strategy 4: Hoist Variables - Since variables are available before they're declared, this can cause confusion
+
+
+
+    </script>
+</body>
+</html>

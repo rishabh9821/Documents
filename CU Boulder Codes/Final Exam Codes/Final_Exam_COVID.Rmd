@@ -1,0 +1,84 @@
+---
+title: "Final_Exam"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(ggpmisc)
+library(tidyverse)
+library(ggpubr)
+```
+#Goal
+## To understand the relationship between population and the number of confirmed cases
+
+## Data
+
+First, let's import the data. The data is coming from two sources: the population csv and the total cases csv. 
+
+```{r cars, include=TRUE, echo=FALSE}
+covid <- read.csv("~/Documents/CU Boulder Codes/Final Exam Codes/covid.csv")
+covid_pop <- read.csv("~/Documents/CU Boulder Codes/Final Exam Codes/COVID_time.csv")
+covid_pop <- covid_pop[,12:13]
+covid_tot <- merge(covid, covid_pop, by = "Combined_Key")
+```
+
+## Aggregation and Editing of Data
+
+Then, this data is aggregated into another dataframe to show state data. This is then summed across.
+
+```{r pressure2, echo=TRUE}
+covid_state <- aggregate(covid_tot[10:16], 
+                         by = list(covid_tot$Province_State), 
+                         sum)
+
+covid_state$Case_Pop_Ratio = covid_state$Confirmed / covid_state$Population
+
+covid_state <- covid_state[!is.infinite(covid_state$Case_Pop_Ratio),]
+
+covid_stateSort <- covid_state[order(-covid_state$Case_Pop_Ratio),]
+```
+
+## Plotting Cases vs. Population Data
+
+```{r pressure3, echo=TRUE}
+ggplot(data = covid_tot, aes(x = Population, y = Confirmed)) + 
+      geom_point() + 
+      labs(title = "Population vs. Cases for all Data")
+```
+
+In this plot, we can see that the majority of cases are clustered in the smaller regions with a few large scale points. It may be better to visualize this data on a log-log plot
+
+```{r pressure4, echo=TRUE}
+ggplot(data = covid_stateSort, aes(x = Population, y = Confirmed)) + 
+       geom_point() + 
+       labs(title = "Population vs. Cases for State Data (Log-Log Plot)") + 
+       scale_y_log10() +
+       scale_x_log10()
+```
+
+Much Better!
+
+We can see that on the log-log plot of cases vs. population, the data follows a strong linear pattern. Let's put a regression line on top to see what the model looks like
+
+```{r pressure5, echo=TRUE}
+ggplot(data = covid_stateSort, aes(x = Population, y = Confirmed)) + 
+       geom_point() + 
+       labs(title = "Population vs. Cases for State Data (Log-Log Plot)") + 
+       scale_y_log10() +
+       scale_x_log10() + 
+       geom_smooth(method = "lm")
+```
+
+We see that the linear model seems to fit the data fairly well. Let's take a look at the model
+
+```{r pressure6, echo=TRUE}
+model <- lm(log(Confirmed) ~ log(Population), data = covid_stateSort)
+summary(model)
+```
+
+In this model, we see a great R^2 Value and p-val. This displays that the model is strong and the model follows a format of <b>log(Cases) = log(Pop)*1.364 - 10.12</b>
+
+## Sources of Bias 
+### The sources of bias may 

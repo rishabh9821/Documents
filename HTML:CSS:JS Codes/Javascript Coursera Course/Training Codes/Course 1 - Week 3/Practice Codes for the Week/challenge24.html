@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>New Paragraph Adder Button</h1>
+    <button id='New-Para'>
+        Add New Paragraph
+    </button>
+    <div id='para-holder'>
+        <h1>Paragraphs you've written</h1>
+    </div>
+
+    <script>
+
+        var button = document.getElementById('New-Para');
+        var paraDiv = document.getElementById('para-holder');
+
+        button.addEventListener('click', function () {
+            var children = paraDiv.children;
+            for (i = 0; i < children.length; i++) {
+                console.log(children[i].textContent)
+                children[i].className = "non-edit-para"
+            }
+            var newPara = document.createElement('p');
+            newPara.className = 'edit-para'
+            newPara.textContent = "";
+            paraDiv.appendChild(newPara)
+        });
+
+        document.addEventListener('keydown', function (event) {
+            console.log(event.key)
+            var editPara = document.getElementsByClassName('edit-para')
+            if (event.key.length == 1) {
+                editPara[0].textContent = editPara[0].textContent + event.key;
+            } else if (event.key == 'Backspace') {
+                editPara[0].textContent = editPara[0].textContent.slice(0,-1);
+            }
+        })
+
+
+
+
+    </script>
+</body>
+</html>

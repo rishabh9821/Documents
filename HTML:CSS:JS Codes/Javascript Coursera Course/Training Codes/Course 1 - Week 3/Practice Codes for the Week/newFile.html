@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Basic Challenges
+    </title>
+    <style>
+        .blue {color:blue}
+    </style>
+</head>
+<body>
+    <p>First Paragraph </p>
+    <h1 id = 'one'>This is my first tag</h1>
+    <h2 id = 'two'>This is my second tag</h2>
+    <div id = "special">
+        <p>First Content</p>
+        <h1>Second Content</h1>
+    </div>
+    <p>
+        This is the first paragraph tag that I've used in this document. Fairly interesting
+        to see.
+    </p>
+    <p>
+        Second Paragraph Tag
+    </p>
+
+    <a href="https://www.pornhub.com" class = 'new-class'>
+        My Favorite Site
+    </a>
+    <div class = "second-class">
+        <p id = 'first-id'>
+            Random Content
+        </p>
+        <h1 class = "third-class">
+            Other Content
+        </h1>
+    </div>
+
+    <script>
+        var colors = ['red','blue','green','yellow','black']
+        var colorDesired = prompt("what color would you like")
+        if (colors.includes(colorDesired)){
+            document.getElementById("one").style.color = colorDesired;
+            document.getElementById("two").textContent = "It Worked!"
+        } else {
+            document.getElementById("two").textContent = "Sorry we dont have that color"
+        }
+
+        var myParagraphs = document.getElementsByTagName("p")
+        for (var i = 0; i < myParagraphs.length; i++) {
+            myParagraphs[i].style.color = 'red';
+            myParagraphs[i].style.fontSize = 'medium'
+        }
+
+        var myClass = document.getElementsByClassName('new-class')
+        console.log(myClass)
+        for (var i = 0; i < myClass.length; i++) {
+            myClass[i].textContent = "Just Kidding. Actually!"
+        }
+
+        var queryItems = document.querySelector(".second-class .third-class")
+        queryItems.textContent = "Changed Content"
+        queryItems.style.color = 'purple'
+
+        var otherItems = document.querySelectorAll(".second-class #first-id") 
+
+        for (items of otherItems) {
+            items.textContent = 'Actually JS Changed'
+            items.style.color = 'blue'
+            items.style.fontSize = 'xx-large'
+        }
+
+        var itemsQueried = document.getElementsByTagName("a");
+        var name = prompt('Whats your first name')
+        for (item of itemsQueried) {
+            if (name.toUpperCase() == "RAKHI"){
+                item.setAttribute("href","https://www.coursera.com")
+            } else {
+                item.setAttribute("href","https://www.pornhub.com")
+            }
+        }
+        
+        /*
+        var myDivChildren = document.getElementById("special").childNodes;
+        for (child of myDivChildren) {
+            child.textContent = '"Fuck all yall" - Blac Youngsta'
+        }
+        */
+
+        var myDiv = document.getElementById("special");
+        myDiv.innerHTML = "<p> Paragraph added using javascript</p>"
+
+        var firstPara = document.querySelector("p");
+        firstPara.className = 'blue'
+
+
+
+    </script>
+
+</body>
+</html>

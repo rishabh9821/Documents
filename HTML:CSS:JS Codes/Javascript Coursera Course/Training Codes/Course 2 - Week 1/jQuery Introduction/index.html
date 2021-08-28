@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing jQuery</title>
+</head>
+
+<body>
+
+    <h1>Is jQuery Working?</h1>
+    <p> Here's a paragraph</p>
+    <p>Here's another paragraph</p>
+
+    <!--Add jQuery library here-->
+    <!-- Can Google jQuery CDN to get this into script-->
+    <script src='jquery-3.6.0.min.js'></script>
+    <script>
+        if (window.jQuery) {
+            alert("jQuery is loaded! :-)");
+            jQuery('h1').css('color','red');
+            $('p').css('color','blue');
+
+        } else {
+            alert("jQuery is not loaded :-(");
+        }
+
+
+		
+    </script>
+
+</body>
+
+</html>

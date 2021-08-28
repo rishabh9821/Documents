@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Destinations WishList</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@600&family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+	<!-- Our CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id='header'>
+        <h1 class='head-text'>
+            Vacation Destinations Wish List
+        </h1>
+        <p class='head-text'>
+            Find exciting places to visit! Use the form below to add the location to the wishlist
+        </p>
+    </div>
+    <div id='left-block'>
+        <h1 class='content'>
+            Wish List Characteristics
+        </h1>
+        <form id = 'form-content'>
+            <div class="content">
+                Destination Name
+            </div>
+            <input type='text' placeholder="Enter the name of the destination" class="content" id='dest-name'>
+            <div class="content">
+                Location
+            </div>
+            <input type='text' placeholder="Where is it located?" class="content" id='dest-location'>
+            <div class="content">
+                Photograph
+            </div>
+            <input type='text' placeholder="Enter the URL of image of the place" class="content" id='dest-photo'>
+            <div class="content">
+                Description
+            </div>
+            <input type='text' placeholder="Please give a small description of the location" class="content" id='dest-desc'>
+            <div class='content' id='click'>
+                <input type='submit' value='Add to List' id='button'>
+            </div>
+            
+        </form>
+    </div>
+    <div id='right-block'>
+        <h1 id='right-block-header'>
+            My Wish List!
+        </h1>
+        <div id='wishlist-holder'>
+
+        </div>
+    </div>
+    <!-- Our JavaScript -->
+    <script src='script.js'>
+        
+
+
+
+    </script>
+</body>
+</html>

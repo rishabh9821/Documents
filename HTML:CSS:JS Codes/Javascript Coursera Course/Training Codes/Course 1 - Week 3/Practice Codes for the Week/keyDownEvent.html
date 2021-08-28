@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Keydown Event
+    </h1>
+    <p>Press a key on your keyboard</p>
+    <div id="item-changed">
+        The text you are typing is: 
+    </div>
+
+    <script>
+        var changedItem = document.getElementById('item-changed')
+        document.addEventListener('keydown', function(event) {
+            if (event.key.length == 1) {
+                changedItem.textContent = changedItem.textContent + event.key
+            } else if (event.key == 'Backspace') {
+                changedItem.textContent = changedItem.textContent.slice(0,-1)
+            } 
+        })
+
+    </script>
+</body>
+</html>

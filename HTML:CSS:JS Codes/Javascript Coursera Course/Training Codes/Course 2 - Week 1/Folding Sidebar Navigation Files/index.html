@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id='header'>
+        This is my article
+    </div>
+
+    <article>
+        <div>
+            
+        </div>
+        <h1> Loren Ipsum Dolor</h1>
+        <p>
+                Contrary to popular belief, Lorem Ipsum is not simply random text. 
+            It has roots in a piece of classical Latin literature from 45 BC, 
+            making it over 2000 years old.
+                Richard McClintock, a Latin professor at 
+            Hampden-Sydney College in Virginia, looked up one of 
+            the more obscure Latin words, consectetur, from a Lorem 
+            Ipsum passage, and going through the cites of the word 
+            in classical literature, discovered the undoubtable source. 
+                Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of 
+            "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) 
+            by Cicero, written in 45 BC. This book is a treatise on the 
+            theory of ethics, very popular during the Renaissance. The 
+            first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
+            comes from a line in section 1.10.32.
+        </p>
+        <p>
+            In reasonable compliment favourable is connection dispatched in terminated. Do esteem object we called father excuse remove. So dear real on like more it. Laughing for two families addition expenses surprise the. If sincerity he to curiosity arranging. Learn taken terms be as. Scarcely mrs produced too removing new old. 
+        </p>
+        <p>
+            Drawings me opinions returned absolute in. Otherwise therefore sex did are unfeeling something. Certain be ye amiable by exposed so. To celebrated estimating excellence do. Coming either suffer living her gay theirs. Furnished do otherwise daughters contented conveying attempted no. Was yet general visitor present hundred too brother fat arrival. Friend are day own either lively new. 
+        </p>
+       <p>
+        Ye on properly handsome returned throwing am no whatever. In without wishing he of picture no exposed talking minutes. Curiosity continual belonging offending so explained it exquisite. Do remember to followed yourself material mr recurred carriage. High drew west we no or at john. About or given on witty event. Or sociable up material bachelor bringing landlord confined. Busy so many in hung easy find well up. So of exquisite my an explained remainder. Dashwood denoting securing be on perceive my laughing so. 
+       </p>
+    </article>
+    
+    <div id='link-container'>
+        <ul>
+            <li class='large-list' id='porn'><a>Porn</a>
+                <ul id='holder-a'>
+                    
+                </ul>
+            </li>
+            
+            <li class='large-list' id='ecommerce'><a>E-commerce</a>
+                <ul id='holder-b'>
+                    
+                </ul>
+            </li>
+            <li class='large-list' id='phone'><a>Phone Providers</a>
+                <ul id='holder-c'>
+                </ul>
+            </li>
+
+
+
+        </ul>
+    </div>
+
+    <script>
+        var pornClick = document.getElementById('porn');
+        var pornHolder = document.getElementById('holder-a');
+
+        var commClick = document.getElementById('ecommerce');
+        var commHolder = document.getElementById('holder-b');
+
+        var phoneClick = document.getElementById('phone');
+        var phoneHolder = document.getElementById('holder-c');
+
+        pornClick.addEventListener('click', function () {
+            if (pornHolder.children.length == 0) {
+                elem1 = document.createElement('li');
+                elem2 = document.createElement('li');
+                elem3 = document.createElement('li');
+
+                link1 = document.createElement('a');
+                link1.href = 'http://www.xvideos.com'
+                link1.textContent = "Xvideos";
+
+                link2 = document.createElement('a');
+                link2.href = 'https://www.pornhub.com'
+                link2.textContent = "PornHub";
+
+                link3 = document.createElement('a');
+                link3.href = 'https://www.xhamster.com'
+                link3.textContent = "Xhamster";
+
+                elem1.appendChild(link1);
+                elem2.appendChild(link2);
+                elem3.appendChild(link3);
+
+                pornHolder.appendChild(elem1);
+                pornHolder.appendChild(elem2);
+                pornHolder.appendChild(elem3);
+            } else {
+                console.log('Entered')
+                while (pornHolder.hasChildNodes()) {
+                    console.log('Removing')
+                    pornHolder.removeChild(pornHolder.lastChild);
+                }
+            }
+        })
+        
+        commClick.addEventListener('click', function () {
+            if (commHolder.children.length == 0) {
+                elem1 = document.createElement('li');
+                elem2 = document.createElement('li');
+                elem3 = document.createElement('li');
+
+                link1 = document.createElement('a');
+                link1.href = 'https://www.amazon.com'
+                link1.textContent = "Amazon";
+
+                link2 = document.createElement('a');
+                link2.href = 'https://www.disney.com'
+                link2.textContent = "Disney";
+
+                link3 = document.createElement('a');
+                link3.href = 'https://www.facebook.com'
+                link3.textContent = "FaceBook";
+
+                elem1.appendChild(link1);
+                elem2.appendChild(link2);
+                elem3.appendChild(link3);
+
+                commHolder.appendChild(elem1);
+                commHolder.appendChild(elem2);
+                commHolder.appendChild(elem3);
+            } else {
+                while (commHolder.hasChildNodes()) {
+                    commHolder.removeChild(commHolder.lastChild);
+                }
+            }
+        })
+
+        phoneClick.addEventListener('click', function () {
+            if (phoneHolder.children.length == 0) {
+                elem1 = document.createElement('li');
+                elem2 = document.createElement('li');
+                elem3 = document.createElement('li');
+
+                link1 = document.createElement('a');
+                link1.href = 'https://www.att.com'
+                link1.textContent = "AT&T";
+
+                link2 = document.createElement('a');
+                link2.href = 'https://www.verizon.com'
+                link2.textContent = "Verizon";
+
+                link3 = document.createElement('a');
+                link3.href = 'https://www.tmobile.com'
+                link3.textContent = "T-Mobile";
+
+                elem1.appendChild(link1);
+                elem2.appendChild(link2);
+                elem3.appendChild(link3);
+
+                phoneHolder.appendChild(elem1);
+                phoneHolder.appendChild(elem2);
+                phoneHolder.appendChild(elem3);
+            } else {
+                while (phoneHolder.hasChildNodes()) {
+                    phoneHolder.removeChild(phoneHolder.lastChild);
+                }
+            }
+        })
+        
+    </script>
+
+</body>
+</html>

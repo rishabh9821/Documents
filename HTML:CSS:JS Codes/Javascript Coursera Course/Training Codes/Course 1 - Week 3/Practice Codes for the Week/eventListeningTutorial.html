@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hover {
+            width: 50px;
+            height: 50px;
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <button>
+        Don't Press Me
+    </button>
+    <div>
+         <a href = "https://www.xvideos.com">My Favorite Site</a>
+    </div>
+    <form method = "get">
+        <label>Your Name:<input type = "text" name="name"></label>
+        <input type='submit' value="send">
+    </form>
+
+    <div class="change">
+        You're so beautiful
+    </div>
+    <h1 class='hover-header'>This is the header</h1>
+    <div class='hover'></div>
+
+    <p id = "para-1">
+        First Paragraph
+    </p>
+    <div id='content-1'>
+        Other Content
+    </div>
+
+    <script>
+        var btn = document.querySelector('button');
+
+        btn.addEventListener('click', function (event) {
+            alert('Dont do that');
+            var myTag = document.createElement('p');
+            var myText = document.createTextNode('Dont Fucking do that');
+            myTag.appendChild(myText);
+            myBody = document.querySelector('body');
+            myBody.appendChild(myTag)
+
+            event.target.style.color = 'blue'
+
+
+        });
+
+        btn.addEventListener('mouseenter', function (event) {
+            event.target.style.backgroundColor = 'red';
+        });
+
+        btn.addEventListener('mouseout', function (event) {
+            event.target.style.backgroundColor = 'white';
+        })
+
+        var link = document.querySelector('a');
+
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            alert('Sorry you cant do on this site')
+        });
+
+        var myForm = document.querySelector('form');
+
+        myForm.addEventListener('submit',function (event) {
+            event.preventDefault();
+            var formData = document.querySelector('input').value;
+            alert(formData);
+        })
+
+        var myClass = document.getElementsByClassName('change');
+        for (element of myClass) {
+            element.addEventListener('mouseenter', function (event) {
+                event.target.textContent = "Just Kidding" 
+            })
+            element.addEventListener('mouseout', function (event) {
+                event.target.textContent = "You're so beautiful"
+            })
+        }
+
+        var myHead = document.getElementsByClassName('hover-header');
+        var myBox = document.getElementsByClassName('hover');
+
+        for (element of myBox) {
+            element.addEventListener('mouseenter',function () {
+                myHead.textContent = "The mouse is over the box"
+            })
+        }
+
+        var para = document.getElementById('para-1');
+        var content = document.getElementById('content-1')
+        content.addEventListener('mouseover', function (event) {
+            para.textContent = "Your mouse is over the content "
+            para.style.color = "red"
+        })
+        content.addEventListener('mouseout', function () {
+            para.style.color = 'black'
+            para.textContent = "First Paragraph"
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    margin:0;
+    padding:0;
+}
+#header {
+    background-color: #4503fc;
+    width: 95%;
+    height: 20%;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 30px;
+    color: white;
+}
+
+article {
+    float: right;
+    width: 55%;
+    padding: 20px;
+}
+article p{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+}
+
+article h1 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#link-container {
+    display: inline-block;
+    width: 30%;
+    padding: 20px;
+    align-self: center;
+}
+#link-container ul {
+    margin-left: 20px;
+    font-size: 24px;
+
+}
+

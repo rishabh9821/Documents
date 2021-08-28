@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blue {color: blue}
+    </style>
+</head>
+<body>
+    <p>
+        This paragraph will be edited to blue by Javascript
+    </p>
+    <div id = "first-id">
+        <div class = "big-class">
+            First Content
+        </div>
+        <div class = "big-class">
+            Second Content
+        </div>
+    </div>
+    <form>
+        <label>
+            <input type = "checkbox">
+            YES
+        </label>
+    </form>
+    <script>
+        var paraTag = document.querySelector("p");
+        paraTag.className = "blue"
+
+        var tags = document.querySelectorAll('#first-id .big-class')
+        for (tag of tags) {
+            tag.textContent = 'Newly Edited Content'
+            tag.setAttribute('class','new-class')
+        }
+
+        var checkbox = document.querySelector('input');
+        checkbox.setAttribute('checked','checked')
+
+        var myTag = document.createElement('p');
+        var myText = document.createTextNode('Heres a new paragraph');
+        myTag.appendChild(myText);
+        var myDiv = document.querySelector('div');
+        myDiv.appendChild(myTag);
+
+        // myDiv.removeChild(myDiv.children[2])
+
+
+    </script>
+</body>
+</html>

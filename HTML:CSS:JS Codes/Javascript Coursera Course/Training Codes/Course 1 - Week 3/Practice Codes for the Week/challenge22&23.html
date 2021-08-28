@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Javascript Course: Challenge 22 & 23
+    </h1>
+    <p class='green-para'>
+        Here's a paragraph tag
+    </p>
+    <p class='green-para' id='last-para'>
+        Here's another paragraph tag
+    </p>
+
+    <button id="green-button">
+        Ayo, Turn Green!
+    </button>
+
+    <script>
+        var numParas = 5;
+        var lastPara =  document.getElementById("last-para");
+        var referenceNode = document.getElementById('green-button')
+            for (i = 0; i < numParas; i++) {
+                var newPara = document.createElement('p')
+                newPara.textContent = "Here's another paragraph tag";
+                newPara.classList.add('green-para');
+                lastPara.insertAdjacentElement('afterEnd', newPara)
+            };
+
+        var button = document.getElementById('green-button');
+        var paras = document.getElementsByClassName('green-para');
+        var numClicks = 0;
+        button.addEventListener('click', function (event) {
+            console.log(paras.length)
+            numClicks = numClicks + 1;
+            if (numClicks % 2 == 1) {
+                i = 0;
+                for (para of paras) {
+
+                    if (i == 0) {
+                        para.style.color = "green"
+                        para.textContent = "Here's a green paragraph"
+                    } else {
+                        para.style.color = "green"
+                        para.textContent = "Here's another green paragraph"
+                    }
+                    i = i + 1;
+                }
+                event.target.textContent = "Okay, Turn Black!"
+            } else if (numClicks % 2 == 0) {
+                i = 0;
+                for (para of paras) {
+                    if (i == 0) {
+                        para.style.color = "black"
+                        para.textContent = "Here's a paragraph"
+                    } else {
+                        para.style.color = "black"
+                        para.textContent = "Here's another paragraph"
+                    }
+                    i = i + 1
+                }
+                event.target.textContent = "Ayo, Turn Green!"
+            }
+
+            
+            
+        })
+    </script>
+</body>
+</html>

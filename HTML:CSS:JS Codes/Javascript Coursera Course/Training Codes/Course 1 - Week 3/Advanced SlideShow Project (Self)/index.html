@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='styles.css' rel='stylesheet'>
+</head>
+<body>
+    <div id='content'>
+        <img src="slides/image1.jpg" alt='slideshow image' id='my-image'>
+    </div>
+
+    <p id="links"><a href='#' id='previous'>Previous</a><a href='#' id='next'>Next</a></p>
+
+    <script>
+
+        var currentImage = 0;
+        var imgArray = ['image1.jpg','image2.jpg','image3.jpg','image4.jpg','image5.jpg'];
+        for (i = 0; i < imgArray.length; i++) {
+            imgArray[i] = "slides/"+imgArray[i];
+        }
+        var container = document.getElementById('content')
+        var myImage = document.getElementById('my-image')
+        var prevLink = document.getElementById('previous');
+        var nextLink = document.getElementById('next');
+
+        nextLink.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            currentImage = currentImage + 1;
+            console.log(currentImage)
+            if (currentImage >= imgArray.length) {
+                currentImage = 0;
+            }
+            var newSlide = document.createElement('img');
+            newSlide.src = imgArray[currentImage];
+            newSlide.className = 'fadeinimg';
+            container.appendChild(newSlide);
+
+            if (container.children.length > 2) {
+                container.removeChild(container.children[0])
+            }
+        })
+
+        prevLink.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            currentImage = currentImage - 1;
+            if (currentImage < 0) {
+                currentImage = imgArray.length - 1;
+            }
+
+            var newSlide = document.createElement('img');
+            newSlide.className = 'fadeinimg';
+            newSlide.src = imgArray[currentImage];
+            container.appendChild(newSlide);
+
+            if (container.children.length > 2) {
+                container.removeChild(container.children[0])
+            }
+
+        });
+
+        /*
+        prevLink.onclick = prevImageCount;
+        nextLink.onclick = nextImageCount;
+
+        function prevImageCount(event) {
+            currentImage = currentImage - 1;
+            if (currentImage < 0) {
+                currentImage = imgArray.length - 1;
+            };
+            myImage.src = imgArray[currentImage];
+        }
+
+        function nextImageCount (event) {
+            currentImage = currentImage + 1;
+            if (currentImage >= imgArray.length) {
+                currentImage = 0;
+            }
+            myImage.src = imgArray[currentImage];
+        }
+        */
+    </script>
+</body>
+</html>
